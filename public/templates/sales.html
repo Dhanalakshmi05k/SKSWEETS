@@ -1,0 +1,108 @@
+<div ng-include="'../templates/navHeaderWIthOptions.html'"></div>
+<div class="container">
+    <div class="row">
+        <button style="margin-left:30px;" class="btn btn-primary" data-toggle="modal" data-target="#AddSales">
+            ADD Daily Sales Details
+        </button>
+        <div class="col-md-3 col-sm-3 col-xs-8 form-group pull-right top_search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." ng-model="searchtext">
+            <span class="input-group-btn">
+			<button class="btn btn-default" type="button">Go!</button>
+		</span>
+        </div>
+    </div>
+    </div>
+
+    <br/><br/>
+    <div class="container-fluid">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th style="color:black;">NUMBER OF COCONUTS</th>
+                <th style="color:black;">NUMBER OF BATCHES</th>
+                <th style="color:black;">DATE OF ADDITION</th>
+                <th style="color:black;">ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--{{salesDetails}}-->
+            <tr dir-paginate="sales in salesDetails|filter:searchtext|itemsPerPage:3">
+
+                <td style="color:tomato;">{{sales.numberOfCoconut}}</td>
+                <td style="color:tomato;">{{sales.numberOfBatches}}</td>
+                <td style="color:tomato;">{{sales.dateOfAddition}}</td>
+
+                <td style="color:tomato;">
+                   <!-- <button class="btn btn-success" data-toggle="modal" data-target="#Modal" ng-click="getSingleReceipt(receipt._id)">Edit</button>-->
+                    <!--<button class="btn btn-danger" ng-click="deleteReceipt(receipt._id)">Delete</button>-->
+                    <button type="button" class="btn btn-primary" ui-sref="salesItemDetails({salesMongodbId:sales._id})">Add Items
+                    </button>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls class="paging" style="margin-left:450px;"
+                                 max-size="3"
+                                 direction-links="true"
+                                 boundary-links="true" >
+        </dir-pagination-controls>
+    </div>
+</div>
+
+<div class="modal fade" id="AddSales" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Daily Sales Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div class="form-group">
+                        <label class="col-form-label" >Enter Number Of Coconuts </label>
+                        <input type="text" class="form-control"   ng-model="dailySalesDetails.numberOfCoconut"
+                               placeholder="Number Of Coconuts">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label" >Enter Number Of Batch </label>
+                        <input type="text" class="form-control" id="recipient-name"  ng-model="dailySalesDetails.numberOfBatches"
+                               placeholder="Number Of Batch">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-2 col-form-label">Date Of Addition</label>
+                        <div class="input-group" ng-controller="dateandtimepicCtrl as ctrl">
+                            <input type="text" class="form-control" placeholder="Date Of Addition" datetime-picker
+                                   ng-model="dailySalesDetails.dateOfAddition" is-open="ctrl.picker6.open"
+                                   ng-change="dateAndTime(ctrl.picker6.date);changingDateValue(ctrl.picker6.date)"
+                                   ng-init="ctrl.picker6.date"/>
+                            <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" style="margin-top:0px;"
+                            ng-click="ctrl.openCalendar($event, 'picker6')"><span
+                            class="glyphicon glyphicon-calendar"></span>
+                    </button>
+                </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveCoconutSalesDetails(dailySalesDetails)">Save Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'../templates/footer.html'"></div>
+
+
+

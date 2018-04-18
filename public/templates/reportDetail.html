@@ -1,0 +1,129 @@
+<div ng-include="'../templates/navHeaderWIthOptions.html'"></div>
+<button style="margin-left:380px;" class="btn btn-primary" ui-sref="report" type="button">ADD NEW CLIENT</button>
+<br/><br/>
+<div class="container">
+    <div class="form-group">
+        <label class ="col-form-label">DATE OF PURCHASE:
+        </label>
+        <div class="input-group" ng-controller="dateandtimepicCtrl as ctrl">
+            <input type="text" class="form-control" datetime-picker ng-model="ordersettings.dateOfPurchase"
+                   is-open="ctrl.picker6.open"
+                   ng-change="dateAndTime(ctrl.picker6.date);changingDateValue(ctrl.picker6.date)"
+                   ng-init="ctrl.picker6.date"/>
+            <span class="input-group-btn">
+									<button type="button" class="btn btn-default"
+                                            ng-click="ctrl.openCalendar($event, 'picker6')"><span
+                                            class="glyphicon glyphicon-calendar"></span>
+									</button>
+									</span>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+        <th>{{report._id}}</th>
+        <tr>
+            <th>PRODUCTS</th>
+            <th>COST</th>
+            <th>NO OF PACKETS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>NO OF BIG PACKETS:</td>
+            <td>{{report.costOfBig}}</td>
+            <td><input type="number" id="bigpackets" ng-model="ordersettings.packetsOfBig"></td>
+        </tr>
+        <tr>
+            <td>NO OF SMALL PACKETS:</td>
+            <td>{{report.costOfSmall}}</td>
+            <td><input type="number" id="smallpackets" ng-model="ordersettings.packetsOfSmall"></td>
+        </tr>
+        <tr>
+            <td>NO OF PACKETS IN LADDU:</td>
+            <td>{{report.costOfLaddu}}</td>
+            <td><input type="number" id="laddupackets" ng-model="ordersettings.packetsOfLaddu"></td>
+        </tr>
+        <tr>
+            <td>NO OF PACKETS RUPEES IN 5:</td>
+            <td>{{report.rupees}}</td>
+            <td><input type="number" id="packetrupees" ng-model="ordersettings.packetsInRupees"></td>
+        </tr>
+        <tr>
+            <td>OTHER STATES:</td>
+            <td><input type="text" id="other" ng-model="otherstates"></td>
+        </tr>
+        <tr>
+            <td>PACKAGE COST:</td>
+            <td><input type="number" id="cost" ng-model="packageCost"></td>
+        </tr>
+        </tbody>
+    </table>
+    <td><input  placeholder="TOTAL:" type="number" ng-model="total" readonly id="total" >{{total}}</td>
+    <td><input  style="margin-left:765px;" placeholder="AMOUNT PAID:" type="number" ng-model="amountPaid"  id="paid" ></td>
+
+</div>
+
+<button type="button" style="margin-left:930px;" ng-click="saveOrderSettings()" class="btn btn-primary"> SUBMIT </button>
+<br/><br/>
+<h2 style="margin-left:375px;">CLIENT PURCHASE DETAILS:</h2>
+<div class="col-md-3 col-sm-3 col-xs-8 form-group pull-right top_search">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchtext">
+    </div>
+</div>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>DATE</th>
+            <th>TOTAL</th>
+            <th>REMAINING</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr dir-paginate="orders in order|filter:searchtext|itemsPerPage:3">
+            <td>{{orders.dateOfPurchase}}</td>
+            <td>{{orders.total}}</td>
+            <td>{{orders.balanceAmount}}
+            <!--<button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModal" ng-click="getSingleOrder(order._id)">EDIT</button>-->
+            <!--<button type="button" class="btn btn-danger">DELETE</button>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls class="paging" style="margin-left:450px;"
+                             max-size="3"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+</div>
+<div ng-include="'../templates/footer.html'"></div>
+
+
+
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+    <!--<div class="modal-dialog" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<h5 class="modal-title" id="exampleModalLabel">New message</h5>-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--<span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<form>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="recipient-name" class="col-form-label">REMAINING AMOUNT:</label>-->
+                        <!--<input type="text" class="form-control" ng-model="order.balanceAmount" id="recipient-name">-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                <!--<button type="button" class="btn btn-primary">Send message</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
