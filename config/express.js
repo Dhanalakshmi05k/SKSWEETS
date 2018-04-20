@@ -8,6 +8,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+var multer = require('multer');
+var GridFsStorage = require('multer-gridfs-storage');
+var Grid = require('gridfs-stream');
+
 
 module.exports = function(app, config,io) {
   module.exports = io;
