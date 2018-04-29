@@ -24,6 +24,9 @@ webapp.factory("reportService", function ($http) {
        var getSingleOrder = function (reportId) {
           return $http.get('/customerBymongoId/'+ reportId);
        }
+       var getAllProductSettings = function () {
+                  return $http.get('/allProductDetails');
+              }
 
 return {
         postReportSettings: postReportSettings,
@@ -33,7 +36,8 @@ return {
         updateReport: updateReport,
         postOrderSettings:postOrderSettings,
         getAllOrderSettings:getAllOrderSettings,
-        getSingleOrder:getSingleOrder
+        getSingleOrder:getSingleOrder,
+        getAllProductSettings:getAllProductSettings
 
     }
 

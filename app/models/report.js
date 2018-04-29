@@ -8,7 +8,9 @@ var ElectionResultSchema = new mongoose.Schema(
       costOfSmall:Number,
       costOfLaddu:Number,
       rupees:Number,
-      gstNumber:Number
+      gstNumber:Number,
+      product:{},
+      cost:{}
 },
 {collection:"reports"});
 mongoose.model('reports',ElectionResultSchema);

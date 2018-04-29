@@ -10,6 +10,7 @@ var express = require('express'),
 
 router.post('/reportSetting', function(req, res, next) {
     var reportModel = new ReportModel(req.body);
+
     reportModel.save(function(err, result) {
         if (err){
             console.log('adminSetting failed: ' + err);

@@ -1,6 +1,7 @@
 webapp.controller('reportController', ['$scope', 'reportService', function ($scope, reportService) {
     $scope.reportSettings = {};
     $scope.saveReportSettings = function () {
+    console.log('oueoueouoe',$scope.reportSettings);
         reportService.postReportSettings($scope.reportSettings)
             .then(function (res) {
                     $scope.getAllReportSettings();
@@ -14,7 +15,9 @@ webapp.controller('reportController', ['$scope', 'reportService', function ($sco
 
     $scope.getAllReportSettings = function () {
         reportService.getAllReportSettings().then(function (res) {
+            $scope.getAllProductDetails();
             $scope.reportList = res.data;
+            console.log('ththt',res.data);
         });
     };
 
@@ -47,7 +50,15 @@ webapp.controller('reportController', ['$scope', 'reportService', function ($sco
                 });
     }
 
+    $scope.getAllProductDetails = function ()
+     {
+              reportService.getAllProductSettings().then(function (res)
+              {
+                 $scope.productList = res.data;
+                 console.log('asdasjdas',res.data);
+              });
+     };
+
 
     $scope.getAllReportSettings();
-
 }]);

@@ -16,7 +16,8 @@ var ElectionResultSchema = new mongoose.Schema(
       dateOfPurchase:Date,
       total:Number,
       amountPaid:Number,
-      balanceAmount:Number
+      balanceAmount:Number,
+      cost:{}
 },
 {collection:"orders"});
 mongoose.model('orders',ElectionResultSchema);

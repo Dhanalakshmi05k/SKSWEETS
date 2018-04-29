@@ -10,10 +10,12 @@ var express = require('express'),
 
 router.post('/orderSetting', function(req, res, next) {
     var orderModel = new OrderModel(req.body);
+    console.log('body:',req.body);
     orderModel.save(function(err, result) {
         if (err){
             console.log('orderSetting failed: ' + err);
         }
+        console.log('kit',result);
         res.send(result);
     });
 });

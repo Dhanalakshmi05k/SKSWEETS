@@ -1,7 +1,6 @@
 <div ng-include="'../templates/navHeaderWIthOptions.html'"></div>
 
 
-
 <div class="container">
     <div class="row">
         <button class="btn btn-primary" data-toggle="modal" data-target="#AddItmes">
@@ -40,7 +39,7 @@
                 <td style="color:tomato;">
                     <!-- <button class="btn btn-success" data-toggle="modal" data-target="#Modal" ng-click="getSingleReceipt(receipt._id)">Edit</button>-->
                     <button class="btn btn-danger" ng-click="deleteReceipt(receipt._id)">Delete</button>
-                   <!-- <button class="btn btn-danger" ng-click="deleteReceipt(receipt._id)">Add Items</button>-->
+                    <!-- <button class="btn btn-danger" ng-click="deleteReceipt(receipt._id)">Add Items</button>-->
                 </td>
 
             </tr>
@@ -49,12 +48,13 @@
         <dir-pagination-controls class="paging" style="margin-left:450px;"
                                  max-size="3"
                                  direction-links="true"
-                                 boundary-links="true" >
+                                 boundary-links="true">
         </dir-pagination-controls>
     </div>
 </div>
 
-<div class="modal fade" id="AddItmes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="AddItmes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
 
         <div class="modal-content">
@@ -68,37 +68,36 @@
                 <form>
 
                     <div class="form-group">
-                        <label class="col-form-label" >Name</label>
-                        <input type="text" class="form-control"   ng-model="salesItemDetails.name"
+                        <label class="col-form-label">Name</label>
+                        <input type="text" class="form-control" ng-model="salesItemDetails.name"
                                placeholder="Number Of Coconuts">
                     </div>
 
                     <div class="form-group">
-                        <label  class="col-form-label" >Enter Number Of Trays </label>
-                        <input type="number" class="form-control"   ng-model="salesItemDetails.numberOfTrays"
+                        <label class="col-form-label">Enter Number Of Trays </label>
+                        <input type="number" class="form-control" ng-model="salesItemDetails.numberOfTrays"
                                placeholder="Number Of Batch">
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label" >Enter Number Of Packets </label>
-                        <input type="number" class="form-control"   ng-model="salesItemDetails.numberOfPackets"
+                        <label class="col-form-label">Enter Number Of Packets </label>
+                        <input type="number" class="form-control" ng-model="salesItemDetails.numberOfPackets"
                                placeholder="Number Of Packets">
                     </div>
 
                     <div class="form-group">
-                        <label class="col-form-label" >Enter  Item Cost </label>
-                        <input type="number" class="form-control"   ng-model="salesItemDetails.itemCost"
+                        <label class="col-form-label">Enter Item Cost </label>
+                        <input type="number" class="form-control" ng-model="salesItemDetails.itemCost"
                                placeholder=" Item Cost">
                     </div>
-
-
-
 
 
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveItemSalesDetails(salesItemDetails)">Save Details</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        ng-click="saveItemSalesDetails(salesItemDetails)">Save Details
+                </button>
             </div>
         </div>
     </div>

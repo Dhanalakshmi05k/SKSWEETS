@@ -794,10 +794,13 @@
             })
         })
     }(jQuery);
+
 </script>
 <!--<h style="color:white;"> <span style="color:tomato">EMPLOYEEID:</span> EMPLOYEE ID</h>-->
 <!--<h style="color:white;"> <span style="color:tomato">EMPLOYEENAME:</span>EMPLOYEE NAME</h>-->
 <div ng-include="'../templates/navHeaderWIthOptions.html'"></div>
+{{vendorPayments}}
+{{vendor.data}}
 <div class="container-fluid">
     <div class="row">
         <!-- column -->
@@ -847,9 +850,9 @@
                                             <tr id="package11" class="accordion-toggle" data-toggle="collapse"
                                                 data-parent="OrderPackages" data-target=".emp{{vendor._id}}">
                                                 <td style="border-right-style:ridge;">{{vendor._id}}</td>
-                                                <td style="border-right-style:ridge;">{{leave.totalDays}}</td>
+                                                <td style="border-right-style:ridge;">{{vendor.totalDays}}</td>
                                                 <td>
-                                                    {{leave.finalPayment}}
+                                                    {{vendor.finalPayment}}
                                                 </td>
                                                 <!--<td><button class="btn-themecolor">Edit</button></td>-->
                                                 <!--<td><i class="fa fa-spin fa-hand-o-up waves-effect"></i></td>-->
@@ -880,7 +883,8 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <tr ng-repeat="ven in vendor.data|filter:searchtext" class="kikikiki">
+                                                            <tr ng-repeat="ven in vendor.data|filter:searchtext"
+                                                                class="kikikiki">
                                                                 <td style="border-right-style:ridge;">
                                                                     {{ven.commodityName}}
                                                                 </td>

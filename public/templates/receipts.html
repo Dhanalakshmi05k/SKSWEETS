@@ -1,5 +1,6 @@
 <div ng-include="'../templates/navHeaderWIthOptions.html'"></div>
-<div class="modal fade" id="settingview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="settingview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,8 +13,9 @@
                 <form>
 
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label" >RECEIPT NAME</label>
-                        <input type="text" class="form-control" id="recipient-name"  ng-model="receiptDetails.receiptName">
+                        <label for="recipient-name" class="col-form-label">RECEIPT NAME</label>
+                        <input type="text" class="form-control" id="recipient-name"
+                               ng-model="receiptDetails.receiptName">
                     </div>
 
                     <div class="form-group">
@@ -34,22 +36,28 @@
 
 
                     <div class="form-group">
-                        <label for="recipient-description" class="col-form-label" >DESCRIPTION</label>
-                        <input type="text" class="form-control" id="recipient-description"  ng-model="receiptDetails.description">
+                        <label for="recipient-description" class="col-form-label">DESCRIPTION</label>
+                        <input type="text" class="form-control" id="recipient-description"
+                               ng-model="receiptDetails.description">
                     </div>
 
 
                     <div class="form-group">
                         <label class="form-control-label">UPLOAD LOGO:</label>
-                        <input type="file" ng-model="file" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/*">
-                        <button type="button" style="margin-left: 220px;margin-top: -47px;" class="btn btn-primary" ng-click="uploadfile(file)">Upload</button>
+                        <input type="file" ng-model="file" name="file" base-sixty-four-input required onload="onLoad"
+                               maxsize="500" accept="image/*">
+                        <button type="button" style="margin-left: 220px;margin-top: -47px;" class="btn btn-primary"
+                                ng-click="uploadfile(file)">Upload
+                        </button>
                         <!--<input type="text" class="form-control" id="recipient-logo" ng-model="CandidateDetailsdata.CandidateLogo">-->
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveReceiptDetails()">Save Receipt</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveReceiptDetails()">Save
+                    Receipt
+                </button>
             </div>
         </div>
     </div>
@@ -68,8 +76,8 @@
                 <form>
 
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label" >RECEIPT NAME</label>
-                        <input type="text" class="form-control" id="recipient-name"  ng-model="receipt.receiptName">
+                        <label for="recipient-name" class="col-form-label">RECEIPT NAME</label>
+                        <input type="text" class="form-control" id="recipient-name" ng-model="receipt.receiptName">
                     </div>
 
                     <div class="form-group">
@@ -90,22 +98,28 @@
 
 
                     <div class="form-group">
-                        <label for="recipient-description" class="col-form-label" >DESCRIPTION</label>
-                        <input type="text" class="form-control" id="recipient-description"  ng-model="receipt.description">
+                        <label for="recipient-description" class="col-form-label">DESCRIPTION</label>
+                        <input type="text" class="form-control" id="recipient-description"
+                               ng-model="receipt.description">
                     </div>
 
 
                     <div class="form-group">
                         <label class="form-control-label">UPLOAD LOGO:</label>
-                        <input type="file" ng-model="file" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/*">
-                        <button type="button" style="margin-left: 220px;margin-top: -47px;" class="btn btn-primary" ng-click="uploadfile(file)">Upload</button>
+                        <input type="file" ng-model="file" name="file" base-sixty-four-input required onload="onLoad"
+                               maxsize="500" accept="image/*">
+                        <button type="button" style="margin-left: 220px;margin-top: -47px;" class="btn btn-primary"
+                                ng-click="uploadfile(file)">Upload
+                        </button>
                         <!--<input type="text" class="form-control" id="recipient-logo" ng-model="CandidateDetailsdata.CandidateLogo">-->
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateReceipt()">Update Receipt</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateReceipt()">Update
+                    Receipt
+                </button>
             </div>
         </div>
     </div>
@@ -141,9 +155,12 @@
             <td style="color:tomato;">{{receipt.receiptName}}</td>
             <td style="color:tomato;">{{receipt.date}}</td>
             <td style="color:tomato;">{{receipt.description}}</td>
-            <td style="color:tomato;"> <img style="height:50px;width:50px;" src="data:image/jpeg;base64,{{receipt.docUpload}}"></td>
+            <td style="color:tomato;"><img style="height:50px;width:50px;"
+                                           src="data:image/jpeg;base64,{{receipt.docUpload}}"></td>
             <td style="color:tomato;">
-                <button class="btn btn-success" data-toggle="modal" data-target="#Modal" ng-click="getSingleReceipt(receipt._id)">Edit</button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#Modal"
+                        ng-click="getSingleReceipt(receipt._id)">Edit
+                </button>
                 <button class="btn btn-danger" ng-click="deleteReceipt(receipt._id)">Delete</button>
             </td>
             <!--<td style="color:tomato;">{{employee.salaryInAdvance}}</td>-->
@@ -153,7 +170,7 @@
     <dir-pagination-controls class="paging" style="margin-left:800px;"
                              max-size="3"
                              direction-links="true"
-                             boundary-links="true" >
+                             boundary-links="true">
     </dir-pagination-controls>
 </div>
 <div ng-include="'../templates/footer.html'"></div>
